@@ -1,61 +1,70 @@
 // src\Certificates\Certificates.jsx
-import React, { useMemo, useState } from 'react';
-import Button from '../Button/Button';
-import data from './certificates.json';
+import { useMemo, useState } from 'react'
+import { Carousel, Button } from 'react-bootstrap'
+import data from './certificates.json'
 import './Certificates.css'
 
+export default function Certificates(){
+  const items = useMemo(() => data ?? [], [])
+  const [index, setIndex] = useState(0)
 
-const Certificates = () => {
-    const [idx, setIdx] = useState(0);
-    const items = useMemo(() => data, []);
-    const max = items.length;
+  if (!items.length) return null
+  const item = items[index]
 
-    const prev = () => setIdx(i => (i - 1 + max) % max);
-    const next = () => setIdx(i => (i + 1) % max);
+  return (
+    <section aria-label="گواهینامه‌های من" className="certs">
+      <div className="certs-head">
+        <h3>گواهینامه‌های من</h3>
+        <div className="certs-counter">{index + 1}/{items.length}</div>
+      </div>
 
-    if (!max) return null;
+      <div className="certs-viewport">
+        <Carousel
+          activeIndex={index}
+          onSelect={(i) => setIndex(i)}
+          fade
+          controls
+          indicators={false}
+          interval={2800}
+          pause="hover"
+          wrap
+          touch
+          keyboard
+        >
+          {items.map((it, i) => (
+            <Carousel.Item key={i}>
+              <img
+                className="d-block certs-img"
+                src={it.image}
+                alt={`${it.title} – ${it.issuer}`}
+                loading="lazy"
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
 
-    const item = items[idx];
+      <div className="certs-meta">
+        <div>
+          <strong>{item.title}</strong>
+          <span className="dot">•</span>
+          <span>{item.issuer}</span>
+          <span className="dot">•</span>
+          <span>{item.year}</span>
+        </div>
 
-    return (
-        <section aria-label="گواهینامه‌های من" className="certs">
-            <div className="certs-head">
-                <h3>گواهینامه‌های من</h3>
-                <div className="certs-controls">
-                    {/* <button type="button" onClick={prev} aria-label="قبلی">‹</button> */}
-                    <Button onClick={prev} aria-label="قبلی" variant="outline" size="sm">‹</Button>
-                    <span className="counter">{idx + 1}/{max}</span>
-                    {/* <button type="button" onClick={next} aria-label="بعدی">›</button> */}
-                    <Button onClick={next} aria-label="بعدی" variant="outline" size="sm">›</Button>
-                </div>
-            </div>
-
-            <div className="certs-viewport">
-                <img
-                    src={item.image}
-                    alt={`${item.title} – ${item.issuer}`}
-                    className="certs-img"
-                    loading="lazy"
-                />
-            </div>
-
-            <div className="certs-meta">
-                <div>
-                    <strong>{item.title}</strong>
-                    <span className="dot">•</span>
-                    <span>{item.issuer}</span>
-                    <span className="dot">•</span>
-                    <span>{item.year}</span>
-                </div>
-                {item.link && (
-                    <a className="btn" href={item.link} target="_blank" rel="noreferrer">
-                        مشاهده/دانلود
-                    </a>
-                )}
-            </div>
-        </section>
-    );
+        {item.link && (
+          <Button
+            as="a"
+            href={item.link}
+            target="_blank"
+            rel="noreferrer"
+            size="sm"
+          >
+            مشاهده/دانلود
+          </Button>
+        )}
+      </div>
+    </section>
+  )
 }
-
-
-export default Certificates;

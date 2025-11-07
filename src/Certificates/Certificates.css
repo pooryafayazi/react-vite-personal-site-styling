@@ -1,66 +1,47 @@
 /* src\Certificates\Certificates.css */
-.certs {
-    margin-top: 2rem;
+.certs { margin-top: 2rem; }
+
+.certs-head{
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:.6rem;
+}
+.certs-counter{
+  font-size:.95rem; color:#555; background:#fff; border:1px solid #e5e7eb;
+  padding:.25rem .6rem; border-radius:.6rem;
 }
 
-.certs-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: .6rem;
+.certs-viewport{
+  background:#fff; border:1px solid #eee; border-radius:1rem;
+  padding:.75rem; box-shadow:0 1px 12px rgba(0,0,0,.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.certs-controls {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+.certs-img{
+  width:100%;
+  max-height:460px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto;
+  background:#fff;
+  border-radius:.6rem;
 }
 
-.certs-controls button {
-    border: 1px solid #ddd;
-    background: #fff;
-    border-radius: .6rem;
-    padding: .2rem .7rem;
-    cursor: pointer;
-    color: black;
-    font-size: 20px;
+@media (max-width: 576px){
+  .certs-img{ width:100%; max-height:320px; }
 }
 
-.certs-controls .counter {
-    font-size: .9rem;
-    color: #555;
-    padding: .2rem .7rem;
-    margin-bottom: .2rem;
+.certs-meta{
+  margin-top:.6rem; display:flex; align-items:center; justify-content:space-between;
+  gap:.5rem; flex-wrap:wrap;
 }
+.certs-meta .dot{ margin:0 .35rem; color:#888; }
 
-.certs-viewport {
-    background: #fff;
-    height: auto;
-    border: 1px solid #eee;
-    border-radius: 1rem;
-    padding: .75rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 1px 12px rgba(0, 0, 0, .03);
+.certs-viewport .carousel-control-prev,
+.certs-viewport .carousel-control-next{
+  width: 3rem;
 }
-
-.certs-img {
-    max-width: 600px;
-    border-radius: .5rem;
+.certs-viewport .carousel-control-prev-icon,
+.certs-viewport .carousel-control-next-icon{
+  filter: invert(45%) sepia(13%) saturate(1753%) hue-rotate(139deg) brightness(92%) contrast(86%);
 }
-
-.certs-meta {
-    margin-top: .6rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: .5rem;
-    flex-wrap: wrap;
-}
-
-.certs-meta .dot {
-    margin: 0 .35rem;
-    color: #888;
-}
-

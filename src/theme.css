@@ -1,0 +1,14 @@
+/* src/theme.css */
+:root{
+  --bs-primary:#169fb1;
+  --bs-body-bg:#f7f9fb;
+  --bs-body-color:#222;
+  --bs-link-color:var(--bs-primary);
+}
+body{ font-family: Vazirmatn, system-ui, sans-serif; }
+.container-narrow{ max-width: 960px; }
+.carousel-item img{
+  max-height: 540px;
+  width: 100%;
+  object-fit: cover;
+}

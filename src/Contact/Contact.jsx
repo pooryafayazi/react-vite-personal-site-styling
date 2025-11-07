@@ -1,78 +1,60 @@
 // src\Contact\Contact.jsx
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../Button/Button';
-import './Contact.css'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Form, Button, Alert } from 'react-bootstrap'
 
+export default function Contact(){
+  const [form,setForm]=useState({name:'',email:'',message:'',agree:false})
+  const [errors,setErrors]=useState({})
+  const nav=useNavigate()
 
-const Contact = () => {
-    const [form, setForm] = useState({ name: '', email: '', message: '', agree: false });
-    const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
+  const validate=()=>{
+    const e={}
+    if(!form.name.trim()) e.name='نام را وارد کنید'
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email='ایمیل معتبر نیست'
+    if(form.message.trim().length<10) e.message='حداقل ۱۰ کاراکتر'
+    if(!form.agree) e.agree='تأیید قوانین الزامی است'
+    setErrors(e); return !Object.keys(e).length
+  }
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setForm((f) => ({ ...f, [name]: type === 'checkbox' ? checked : value }));
-    };
+  const submit=(ev)=>{
+    ev.preventDefault(); if(!validate()) return
+    const messages=JSON.parse(localStorage.getItem('messages')||'[]')
+    messages.push({...form,date:new Date().toISOString()})
+    localStorage.setItem('messages',JSON.stringify(messages))
+    nav('/thanks',{state:{name:form.name}})
+  }
 
-    const validate = () => {
-        const errs = {};
-        if (!form.name.trim()) errs.name = 'نام را وارد کنید';
-        // if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'ایمیل معتبر نیست';
-        if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(form.email)) errs.email = 'ایمیل معتبر نیست';
-        if (form.message.trim().length < 10) errs.message = 'پیام حداقل ۱۰ کاراکتر باشد';
-        if (!form.agree) errs.agree = 'تأیید قوانین الزامی است';
-        setErrors(errs);
-        return Object.keys(errs).length === 0;
-    };
+  return (
+    <section className="py-3">
+      <h2 className="h4 text-primary fw-bold mb-3">تماس با من</h2>
+      <Form noValidate onSubmit={submit} className="mx-auto" style={{maxWidth:640}}>
+        <Form.Group className="mb-3" controlId="name">
+          <Form.Label>نام و نام‌خانوادگی</Form.Label>
+          <Form.Control value={form.name} onChange={e=>setForm(f=>({...f,name:e.target.value}))} isInvalid={!!errors.name}/>
+          <Form.Control.Feedback type="invalid">{errors.name}</Form.Control.Feedback>
+        </Form.Group>
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!validate()) return;
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Label>ایمیل</Form.Label>
+          <Form.Control value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))} isInvalid={!!errors.email}/>
+          <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+        </Form.Group>
 
-        const messages = JSON.parse(localStorage.getItem('messages') || '[]');
-        messages.push({ ...form, date: new Date().toISOString() });
-        localStorage.setItem('messages', JSON.stringify(messages));
+        <Form.Group className="mb-3" controlId="message">
+          <Form.Label>پیام</Form.Label>
+          <Form.Control as="textarea" rows={5} value={form.message}
+                        onChange={e=>setForm(f=>({...f,message:e.target.value}))}
+                        isInvalid={!!errors.message}/>
+          <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
+        </Form.Group>
 
-        navigate('/thanks', { state: { name: form.name } });
-    };
-
-
-
-    return (
-        <section className='contact'>
-            <h2>تماس با من</h2>
-            <form onSubmit={handleSubmit} noValidate className="form">
-                <label>
-                    نام و نام‌خانوادگی
-                    <input name="name" value={form.name} onChange={handleChange} />
-                    {errors.name && <span className="error">{errors.name}</span>}
-                </label>
-
-                <label>
-                    ایمیل
-                    <input name="email" value={form.email} onChange={handleChange} />
-                    {errors.email && <span className="error">{errors.email}</span>}
-                </label>
-
-                <label>
-                    پیام
-                    <textarea name="message" rows="5" value={form.message} onChange={handleChange} />
-                    {errors.message && <span className="error">{errors.message}</span>}
-                </label>
-
-                <label className="checkbox">
-                    <input type="checkbox" name="agree" checked={form.agree} onChange={handleChange} />
-                    قوانین و حریم خصوصی را می‌پذیرم
-                </label>
-                {errors.agree && <span className="error">{errors.agree}</span>}
-
-                <Button type="submit" variant="solid" fullWidth> ارسال </Button>
-                
-            </form>
-        </section>
-    )
-};
-
-
-export default Contact;
+        <Form.Check className="mb-3" label="قوانین و حریم خصوصی را می‌پذیرم"
+                    checked={form.agree}
+                    onChange={e=>setForm(f=>({...f,agree:e.target.checked}))}
+                    isInvalid={!!errors.agree} feedback={errors.agree}/>
+        <Button type="submit" className="w-100">ارسال</Button>
+      </Form>
+    </section>
+  )
+}

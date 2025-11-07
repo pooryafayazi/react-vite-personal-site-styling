@@ -1,20 +1,37 @@
 // src\Home\Home.jsx
-import React from 'react';
-import './Home.css'
+import { Carousel } from 'react-bootstrap'
 
-
-const Home = () => {
+export default function Home(){
   return (
-    <section className='Home'>
-      <h2>سلام! من پوریا هستم</h2>
-      <p>
-        توسعه‌دهندهٔ بک‌اند با تمرکز روی Django/DRF و PostgreSQL. 
-        علاقه‌مند به استقرار پایدار با Docker و Nginx و ساخت سرویس‌های قابل اتکا است. 
-       این سایت شخصی من هست و راه‌های تماس را در بخش تماس وجود دارد.
-      </p>
+    <section className="py-3">
+      <Carousel fade>
+        <Carousel.Item>
+          <img className="d-block w-100 rounded-4"
+               src="https://itmeter.ir/static/images/slider-03.webp" alt="" />
+          <Carousel.Caption className="text-start">
+            <h3 className="fw-bold text-info">سلام! من پوریا هستم</h3>
+            <p>توسعه‌دهندهٔ بک‌اند با تمرکز روی Django/DRF و PostgreSQL.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img className="d-block w-100 rounded-4"
+               src="https://itmeter.ir/static/images/slider-02-.webp" alt="" />
+          <Carousel.Caption className="text-start">
+            <h3 className="fw-bold">استقرار پایدار با Docker و Nginx</h3>
+            <p>Healthcheck، لاگینگ، و دیپلوی stage/production.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img className="d-block w-100 rounded-4"
+               src="https://itmeter.ir/static/images/slider-01.webp" alt="" />
+          <Carousel.Caption className="text-start">
+            <h3 className="fw-bold">پروژه‌های واقعی نمایندگی</h3>
+            <p>QuickService، Motor، CarNews و ...</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
     </section>
-  );
+  )
 }
-
-
-export default Home;
