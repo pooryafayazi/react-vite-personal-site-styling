@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "سامانه نوبت‌دهی سریع (quickservice)",
+    "year": "1404",
+    "stack": ["Django", "DRF", "PostgreSQL", "Nginx", "Docker", "AJAX"],
+    "description": "رزرو چندمرحله‌ای، OTP، امتیازدهی مشتری، گزارش‌گیری و تقویم شمسی؛ Branch-aware و محدودیت رزرو فعال.",
+    "repo": "https://kavianico.ir/quickservice/reservation/", 
+    "docs": "",
+    "demo": ""
+  },
+  {
+    "id": 2,
+    "title": "سایت فروش خودرو (نمایش/فروش خودروهای صفر و کارکرده)",
+    "year": "1403",
+    "stack": ["Django", "DRF", "PostgreSQL", "GFK Gallery", "AJAX Filters"],
+    "description": "فیلترهای چندانتخابی آنی، تگ‌های حذف‌پذیر، محدودیت انتخاب شهر، آکاردئون استان/شهر، و نقش‌های فروشنده.",
+    "repo": "https://kavianico.ir/motor/new/grid/",
+    "docs": "",
+    "demo": ""
+  },
+  {
+    "id": 3,
+    "title": "استقرار پایدار VPS",
+    "year": "1403",
+    "stack": ["Docker", "Nginx", "Gunicorn", "PostgreSQL"],
+    "description": "external volume برای جلوگیری از init مجدد دیتابیس، healthcheck روی /health/ و پیکربندی stage.",
+    "repo": "https://kavianico.ir",
+    "docs": "",
+    "demo": ""
+  },
+  {
+    "id": 4,
+    "title": "پروژه‌های آموزشی (DRF + وب سایت خبر تکنولوژی)",
+    "year": "1402",
+    "stack": ["Django", "DRF", "AJAX"],
+    "description": "دو پروژهٔ ۲۴ ساعته با API و دیپلوی روی VPS؛ تمرکز بر مستندسازی و انتشار.",
+    "repo": "https://itmeter.ir",
+    "docs": "",
+    "demo": ""
+  }
+]

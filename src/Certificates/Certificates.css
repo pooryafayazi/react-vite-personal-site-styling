@@ -1,0 +1,66 @@
+/* src\Certificates\Certificates.css */
+.certs {
+    margin-top: 2rem;
+}
+
+.certs-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .6rem;
+}
+
+.certs-controls {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.certs-controls button {
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: .6rem;
+    padding: .2rem .7rem;
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+}
+
+.certs-controls .counter {
+    font-size: .9rem;
+    color: #555;
+    padding: .2rem .7rem;
+    margin-bottom: .2rem;
+}
+
+.certs-viewport {
+    background: #fff;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 1rem;
+    padding: .75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, .03);
+}
+
+.certs-img {
+    max-width: 600px;
+    border-radius: .5rem;
+}
+
+.certs-meta {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.certs-meta .dot {
+    margin: 0 .35rem;
+    color: #888;
+}
+

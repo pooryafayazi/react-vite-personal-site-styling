@@ -1,0 +1,88 @@
+/* src\About\About.css */
+.about {
+    display: grid;
+    gap: 1rem;
+    /* فاصلهٔ عمودی بین بلوک‌ها */
+    padding-block: .5rem 2rem;
+    /* بالا/پایین */
+}
+
+.about>h2 {
+    margin: 0 0 .5rem 0;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #169fb1;
+}
+
+.about>h3 {
+    margin: 1.25rem 0 .35rem 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding-right: .6rem;
+    border-right: 4px solid #eee;
+    color: #169fb1;
+}
+
+.about p {
+    margin: 0;
+    line-height: 1.9;
+    color: #333;
+    text-wrap: pretty;
+}
+
+.about ul {
+    margin: .25rem 0 0 0;
+    padding: 0 1.25rem 0 0;
+    list-style: disc;
+}
+
+.about li {
+    margin: .25rem 0;
+}
+
+.about a {
+    color: #0d6efd;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(13, 110, 253, .35);
+}
+
+.about a:hover {
+    border-bottom-color: transparent;
+}
+
+.about .btn {
+    display: inline-block;
+    margin-top: .5rem;
+    padding: .55rem .9rem;
+    padding-top: .35rem;
+    border-radius: .6rem;
+    background: #169fb1;
+    color: #fff;
+    border: 1px solid #169fb1;
+    text-decoration: none;
+}
+
+.about .btn:hover {
+    filter: brightness(1.1);
+    background: #efefef;
+}
+
+.about .certs {
+    margin-top: 1rem;
+}
+
+@media (min-width: 992px) {
+    .about>h2 {
+        font-size: 1.9rem;
+    }
+
+    .about>h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 542px) {
+    .about .certs-img {
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,50 @@
+/* src\Contact\Contact.css */
+.contact h2 {
+    color: #169fb1;
+}
+
+.form {
+    display: grid;
+    gap: .9rem;
+    max-width: 640px;
+}
+
+.form label {
+    display: grid;
+    gap: .4rem;
+    font-size: .95rem;
+}
+
+input,
+textarea {
+    padding: .7rem .9rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: .7rem;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #bbb;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+button {
+    padding: .7rem 1rem;
+    border: 0;
+    border-radius: .7rem;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+}
+
+.error {
+    color: #c62828;
+    font-size: .85rem;
+}

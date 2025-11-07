@@ -1,0 +1,38 @@
+/* src\Home\Home.css */
+.Home {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+
+  background-image: url('https://itmeter.ir/static/images/slider-03.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #fff;
+  position: relative;
+}
+
+.Home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.Home > * {
+  position: relative;
+  z-index: 1;
+}
+
+.Home h2 {
+  padding-top: 100px;
+  text-shadow: #000 2px 2px 10px;
+  color: #169fb1;
+}
+
+.Home p {
+  text-shadow: #000 2px 2px 10px;
+}

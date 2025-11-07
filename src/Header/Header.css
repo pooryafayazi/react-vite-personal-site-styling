@@ -1,0 +1,25 @@
+/* src\Header\Header.css */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+}
+
+.header h1 {
+    color: #169fb1;
+}
+.header nav a {
+    margin-inline: .5rem;
+    padding: .4rem .7rem;
+    border-radius: .6rem;
+    color: #169fb1;
+}
+
+.header nav a.active {
+    background: #efefef;
+}

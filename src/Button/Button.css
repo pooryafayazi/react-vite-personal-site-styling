@@ -1,0 +1,80 @@
+/* src\Button\Button.css */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    padding: .6rem 1rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    font: 500 0.95rem/1.2 system-ui, sans-serif;
+    transition: .2s ease;
+    text-decoration: none;
+    user-select: none;
+    background: #169fb1;
+    color: #fff;
+    border: 1px solid #169fb1;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-solid {
+    background: #169fb1;
+    color: #fff;
+    border: 1px solid #169fb1;
+}
+
+.btn-solid:hover {
+    filter: brightness(1.1);
+    color: #169fb1;
+    border: 1px solid #169fb1;
+    background: #efefef;
+}
+
+.about .btn:hover {
+    filter: brightness(1.1);
+    color: #169fb1;
+    border: 1px solid #169fb1;
+    background: #efefef;
+}
+
+.btn-outline {
+    background: #fff;
+    color: #222;
+    border: 1px solid #ddd;
+}
+
+.btn-outline:hover {
+    background: #efefef;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #222;
+    border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+    background: #efefef;
+}
+
+.btn-sm {
+    padding: .35rem .7rem;
+    font-size: .88rem;
+}
+
+.btn-md {
+    padding: .6rem 1rem;
+}
+
+.btn-lg {
+    padding: .8rem 1.2rem;
+    font-size: 1rem;
+}
+
+.btn:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}

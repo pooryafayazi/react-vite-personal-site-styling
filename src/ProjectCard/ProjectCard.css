@@ -1,0 +1,52 @@
+/* src\ProjectCard\ProjectCard.css */
+.card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: .9rem;
+    padding: 1rem;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, .03);
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+}
+
+.card-head h3 {
+    color: #169fb1;
+}
+.badge {
+    background: #f4f4f4;
+    padding: .2rem .5rem;
+    border-radius: .5rem;
+    font-size: .8rem;
+}
+
+.muted {
+    color: #666;
+    font-size: .92rem;
+}
+
+.actions {
+    display: flex;
+    gap: .6rem;
+    margin-top: .6rem;
+}
+
+.actions a,
+.btn {
+    display: inline-block;
+    padding: .5rem .8rem;
+    border-radius: .6rem;
+    background: #169fb1;
+    color: #fff;
+    border: 1px solid #169fb1;
+}
+
+.actions a:hover,
+.btn:hover {
+    background: #efefef;
+    color: #169fb1;
+}
