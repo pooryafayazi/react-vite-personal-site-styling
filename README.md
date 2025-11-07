@@ -142,27 +142,20 @@ If your remote repo already has its own initial commit (e.g., created with a REA
     git push -u origin main
 
 
-
-- install router:
-
+install router:
 
     npm i react-router-dom
 
-
-- install Bootstarp:
-
+install Bootstarp:
 
     npm i bootstrap react-bootstrap @fontsource/vazirmatn
 
-
-- and import in src/main.jsx
-
+and import in src/main.jsx
 
     import 'bootstrap/dist/css/bootstrap.rtl.min.css'   // ← RTL 
     import '@fontsource/vazirmatn/400.css'
     import '@fontsource/vazirmatn/700.css'
 
-
-- finally:
+finally:
 
     npm run dev
